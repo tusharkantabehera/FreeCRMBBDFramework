@@ -44,6 +44,20 @@ public class LoginPage extends TestBase{
 		return crmLogo.isDisplayed();
 	}
 	
+	public void enterUsername(String username)
+	{
+		this.username.sendKeys(username);
+	}
+	
+	public void enterPassword(String password)
+	{
+		this.password.sendKeys(password);
+	}
+	
+	public void clickOnLoginButton()
+	{
+		loginButton.click();
+	}
 	public HomePage login(String username,String password) throws InterruptedException
 	{
 		this.username.sendKeys(username);

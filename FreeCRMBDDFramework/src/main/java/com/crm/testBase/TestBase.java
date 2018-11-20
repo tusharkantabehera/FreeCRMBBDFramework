@@ -82,6 +82,10 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(Utils.IMPLICITLY_WAIT, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Utils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
+	}
+	
+	public static void enterUrl()
+	{
 		driver.get(prop.getProperty("url"));
 		log.info("Opening URL");
 	}
