@@ -73,12 +73,12 @@ public class TestBase {
 				  log.info("Firefox Browser opened");
 		}
 		}
-		edriver =new EventFiringWebDriver(driver);
-		listener=new EventListener();
-		edriver.register(listener);
-		driver=edriver;
-		log.info("Listener initialized");
-		//driver.manage().window().maximize();
+//		edriver =new EventFiringWebDriver(driver);
+//		listener=new EventListener();
+//		edriver.register(listener);
+//		driver=edriver;
+//		log.info("Listener initialized");
+//		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Utils.IMPLICITLY_WAIT, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Utils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();

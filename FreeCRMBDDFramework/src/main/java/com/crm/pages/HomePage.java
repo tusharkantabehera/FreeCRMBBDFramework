@@ -19,6 +19,9 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//a[text()='Deals']")
 	WebElement dealsLink;
 	
+	@FindBy(xpath="//a[contains(text(),'New Deal')]")
+	WebElement newDealLink;
+	
 	@FindBy(xpath="//a[text()='Tasks']")
 	WebElement tasksLink;
 	
@@ -38,7 +41,9 @@ public class HomePage extends TestBase{
 	public boolean varifyUsername()
 	{
 		Utils.switchToFrame("mainpanel");
-		return usernameLevel.isDisplayed();
+		boolean flag=usernameLevel.isDisplayed();
+		driver.switchTo().defaultContent();
+		return flag;
 	}
 	
 	public ContactsPage clickOnContacts()
@@ -53,6 +58,14 @@ public class HomePage extends TestBase{
 		Utils.switchToFrame("mainpanel");
 		dealsLink.click();
 		return new DealsPage();
+	}
+	
+	public void clickOnNewDeal()
+	{
+		Utils.switchToFrame("mainpanel");
+		Actions action=new Actions(driver);
+		action.moveToElement(dealsLink).build().perform();
+		newDealLink.click();
 	}
 	
 	public TasksPage clickOnTasks()

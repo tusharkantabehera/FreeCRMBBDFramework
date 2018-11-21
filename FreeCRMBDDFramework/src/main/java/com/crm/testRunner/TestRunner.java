@@ -9,14 +9,18 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
-@CucumberOptions(features="./src/main/java/com/crm/features",        //Path of the features files
+@CucumberOptions(features="./src/main/java/com/crm/features/hooks.feature",        //Path of the features files
                  glue= {"com/crm/stepDefinations"},                  //Path of the Step-definitions files   
 				 plugin= {"pretty","html:target","json:target/cucumber-reports/CucumberTestReport.json",
 						  "rerun:target/cucumber-reports/rerun.txt"}, 
-			  // format= {"pretty","html:target","json:target/cucumber-reports/CucumberTestReport.json"}, 
-				 monochrome=false,      //Display the console output in a proper readable format
-				 strict=false,          //It will check if any step is not define in step-definition file
+//			     format= {"pretty","html:target","json:target/cucumber-reports/CucumberTestReport.json"}, 
+				 monochrome=true,      //Display the console output in a proper readable format
+				 strict=true,          //It will check if any step is not define in step-definition file
 				 dryRun=false           //The mapping is proper between features file and step-definition file
+//				 tags= {"@SmokeTest,@RegressionTest"}     //OR  : execute all tests tagged as smoke OR regression
+//   			 tags= {"@SmokeTest","@RegressionTest"}   //AND : execute all tests tagged as smoke AND regression
+//			     tags= {"~@SmokeTest"}                    //Ignoring SmokeTest
+//				 tags= {"@SmokeTest","~@RegressionTest"}  //Ignoring SmokeTest AND RegressionTest
 				)
 
 public class TestRunner {

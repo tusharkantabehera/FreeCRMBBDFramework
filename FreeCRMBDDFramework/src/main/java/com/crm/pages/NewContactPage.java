@@ -26,16 +26,40 @@ public class NewContactPage extends TestBase{
 	@FindBy(name="client_lookup")
 	WebElement companyInput;
 	
+	@FindBy(name="company_position")
+	WebElement position;
+	
 	@FindBy(xpath="//input[@value='Load From Company']/following-sibling::input[1]")
 	WebElement submitButton;
 	
-	public void createNewContact(String title,String firstName,String LastName,String cmpName)
+	public void enterFirstName(String fstname)
+	{
+		firstNameInput.sendKeys(fstname);
+	}
+	
+	public void enterLastName(String lstname)
+	{
+		lastNameInput.sendKeys(lstname);
+	}
+	
+	public void enterPosition(String position)
+	{
+		this.position.sendKeys(position);
+	}
+	
+	public void clickOnSubmitButton()
+	{
+		submitButton.click();
+	}
+	
+	public void createNewContact(String title,String firstName,String LastName,String position,String cmpName)
 	{
 		Select select=new Select(titleDropdown);
 		select.selectByValue(title);
 		firstNameInput.sendKeys(firstName);
 		lastNameInput.sendKeys(LastName);
 		companyInput.sendKeys(cmpName);
+		this.position.sendKeys(position);
 		submitButton.click();
 	}
 }
